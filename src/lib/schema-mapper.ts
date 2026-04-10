@@ -1,5 +1,33 @@
-import { type BaseDocument, type CollectionFieldSchema, type TypesenseConfig } from '../types.js'
+import { type BaseDocument, type CollectionFieldSchema, type FieldType, type TypesenseConfig } from '../types.js'
 import { extractText } from '../utils/extractText.js'
+
+/** Resolve a dot-separated path in a document, with special support for:
+ *  - 'field.url' → nested object property
+ *  - 'field.0.price' → array index access
+ *  - 'field.length' → array length
+ */
+function resolveFieldPath(doc: BaseDocument, path: string): unknown {
+  const parts = path.split('.')
+  let current: unknown = doc
+  for (const part of parts) {
+    if (current == null) return undefined
+    if (part === 'length' && Array.isArray(current)) return current.length
+    if (typeof current === 'object' && !Array.isArray(current)) {
+      current = (current as Record<string, unknown>)[part]
+    } else if (Array.isArray(current)) {
+      const idx = parseInt(part, 10)
+      if (!isNaN(idx)) {
+        current = current[idx]
+      } else {
+        // Try to extract from first element
+        current = current[0] ? (current[0] as Record<string, unknown>)[part] : undefined
+      }
+    } else {
+      return undefined
+    }
+  }
+  return current
+}
 
 export const mapCollectionToTypesense = (
   collectionSlug: string,
@@ -29,7 +57,14 @@ export const mapCollectionToTypesense = (
       facet: true,
     }))
 
-  const fields: CollectionFieldSchema[] = [...baseFields, ...searchFields, ...facetOnlyFields]
+  const displayFields = (config?.displayFields || []).map((df) => ({
+    name: df.name,
+    type: (df.type || 'string') as FieldType,
+    optional: true,
+    index: false,
+  }))
+
+  const fields: CollectionFieldSchema[] = [...baseFields, ...searchFields, ...facetOnlyFields, ...displayFields]
 
   if (vector?.enabled) {
     const embedFromFields = vector.embedFrom ?? searchableFields
@@ -144,6 +179,20 @@ export const mapToTypesense = (
       typesenseDoc[field] = String(obj.name || obj.title || obj.id || 'unknown')
     } else {
       typesenseDoc[field] = 'unknown'
+    }
+  }
+
+  // Extract display fields (images, prices, counts, etc.)
+  for (const df of (config?.displayFields || [])) {
+    const val = resolveFieldPath(doc, df.source)
+    if (val !== undefined && val !== null) {
+      if (df.type === 'int32' || df.type === 'float') {
+        typesenseDoc[df.name] = typeof val === 'number' ? val : Number(val) || 0
+      } else if (df.type === 'string[]' && Array.isArray(val)) {
+        typesenseDoc[df.name] = val.map(String).join(', ')
+      } else {
+        typesenseDoc[df.name] = String(val)
+      }
     }
   }
 

@@ -102,6 +102,11 @@ export interface CollectionConfig<T = any> {
 export type TypesenseConfig = {
     collections?: Partial<Record<string, {
         displayName?: string;
+        displayFields?: Array<{
+            name: string;
+            source: string;
+            type?: 'string' | 'int32' | 'float' | 'string[]';
+        }>;
         enabled: boolean;
         facetFields?: string[];
         icon?: string;

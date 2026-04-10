@@ -112,6 +112,11 @@ export type TypesenseConfig = {
       string,
       {
         displayName?: string
+        displayFields?: Array<{
+          name: string
+          source: string // field path in doc, e.g. 'thumbnailImage.url', 'tuitionTiers.0.price', 'courses.length'
+          type?: 'string' | 'int32' | 'float' | 'string[]'
+        }>
         enabled: boolean
         facetFields?: string[]
         icon?: string
