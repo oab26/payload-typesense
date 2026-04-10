@@ -21,8 +21,21 @@ export const setupHooks = (
       continue
     }
 
-    const changeHook: CollectionAfterChangeHook = async ({ doc, operation }) => {
-      await syncDocumentToTypesense(typesenseClient, collectionSlug, doc, operation, config, vector)
+    const changeHook: CollectionAfterChangeHook = async ({ doc, operation, req }) => {
+      // Re-fetch with depth 1 to resolve relationship fields (category, specialty, etc.)
+      let fullDoc = doc
+      try {
+        if (req?.payload) {
+          fullDoc = await req.payload.findByID({
+            collection: collectionSlug,
+            id: doc.id,
+            depth: 1,
+          }) as typeof doc
+        }
+      } catch {
+        // Fall back to original doc if re-fetch fails
+      }
+      await syncDocumentToTypesense(typesenseClient, collectionSlug, fullDoc, operation, config, vector)
     }
 
     hooks.afterChange = {

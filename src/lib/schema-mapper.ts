@@ -129,6 +129,19 @@ export const mapToTypesense = (
 
     if (typeof value === 'string' || typeof value === 'number') {
       typesenseDoc[field] = String(value)
+    } else if (Array.isArray(value)) {
+      // hasMany relationship — array of objects or IDs
+      const resolved = value.map((v: unknown) => {
+        if (typeof v === 'object' && v !== null) {
+          return (v as Record<string, unknown>).name || (v as Record<string, unknown>).title || String((v as Record<string, unknown>).id || '')
+        }
+        return String(v || '')
+      }).filter(Boolean)
+      typesenseDoc[field] = resolved.join(', ')
+    } else if (typeof value === 'object' && value !== null) {
+      // Single relationship — extract name or title
+      const obj = value as Record<string, unknown>
+      typesenseDoc[field] = String(obj.name || obj.title || obj.id || 'unknown')
     } else {
       typesenseDoc[field] = 'unknown'
     }
