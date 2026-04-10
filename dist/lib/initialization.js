@@ -34,7 +34,7 @@ const syncExistingDocuments = async (payload, typesenseClient, collectionSlug, c
         while(hasMore){
             const { docs, hasNextPage, totalPages: pages } = await payload.find({
                 collection: collectionSlug,
-                depth: 0,
+                depth: 1,
                 limit,
                 page
             });

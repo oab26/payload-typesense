@@ -67,7 +67,7 @@ const syncExistingDocuments = async (
         totalPages: pages,
       } = await payload.find({
         collection: collectionSlug,
-        depth: 0,
+        depth: 1, // Resolve relationships for facet fields (category, specialty, etc.)
         limit,
         page,
       })
