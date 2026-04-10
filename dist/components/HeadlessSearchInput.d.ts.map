@@ -1,0 +1,1 @@
+{"version":3,"file":"HeadlessSearchInput.d.ts","sourceRoot":"","sources":["../../src/components/HeadlessSearchInput.tsx"],"names":[],"mappings":"AAEA,OAAO,KAAsC,MAAM,OAAO,CAAA;AAE1D,OAAO,EAAE,KAAK,wBAAwB,EAAE,MAAM,0BAA0B,CAAA;AAaxE,wBAAgB,mBAAmB,CAAC,CAAC,GAAG,MAAM,CAAC,MAAM,EAAE,OAAO,CAAC,EAC7D,KAAK,EAAE,wBAAwB,CAAC,CAAC,CAAC,GACjC,KAAK,CAAC,YAAY,CAgTpB;AAED,eAAe,mBAAmB,CAAA"}

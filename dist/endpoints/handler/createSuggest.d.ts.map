@@ -1,0 +1,1 @@
+{"version":3,"file":"createSuggest.d.ts","sourceRoot":"","sources":["../../../src/endpoints/handler/createSuggest.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,cAAc,EAAuB,MAAM,SAAS,CAAA;AAClE,OAAO,KAAK,SAAS,MAAM,WAAW,CAAA;AAEtC,OAAO,EAAE,KAAK,eAAe,EAAE,MAAM,gBAAgB,CAAA;AAErD,eAAO,MAAM,aAAa,GACxB,iBAAiB,SAAS,CAAC,MAAM,EACjC,eAAe,eAAe,KAC7B,cA0CF,CAAA"}

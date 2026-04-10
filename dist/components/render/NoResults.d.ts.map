@@ -1,0 +1,1 @@
+{"version":3,"file":"NoResults.d.ts","sourceRoot":"","sources":["../../../src/components/render/NoResults.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAA;AAEzB,OAAO,EAAE,KAAK,iBAAiB,EAAE,MAAM,oBAAoB,CAAA;AAE3D,UAAU,sBAAsB;IAC9B,kBAAkB,CAAC,EAAE,MAAM,CAAA;IAC3B,KAAK,EAAE,MAAM,CAAA;IACb,WAAW,EAAE,iBAAiB,CAAA;CAC/B;AAED,eAAO,MAAM,iBAAiB,GAAI,qDAI/B,sBAAsB,sBAoDxB,CAAA"}

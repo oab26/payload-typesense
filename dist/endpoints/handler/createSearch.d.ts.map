@@ -1,0 +1,1 @@
+{"version":3,"file":"createSearch.d.ts","sourceRoot":"","sources":["../../../src/endpoints/handler/createSearch.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,cAAc,EAAuB,MAAM,SAAS,CAAA;AAClE,OAAO,KAAK,SAAS,MAAM,WAAW,CAAA;AAItC,OAAO,EAAE,KAAK,eAAe,EAAE,MAAM,gBAAgB,CAAA;AAIrD,eAAO,MAAM,YAAY,GACvB,iBAAiB,SAAS,CAAC,MAAM,EACjC,eAAe,eAAe,KAC7B,cAmIF,CAAA"}

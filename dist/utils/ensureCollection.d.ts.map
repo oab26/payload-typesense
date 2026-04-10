@@ -1,0 +1,1 @@
+{"version":3,"file":"ensureCollection.d.ts","sourceRoot":"","sources":["../../src/utils/ensureCollection.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,SAAS,MAAM,WAAW,CAAA;AAEtC,OAAO,EAAE,KAAK,gBAAgB,EAAE,MAAM,aAAa,CAAA;AAEnD,eAAO,MAAM,gBAAgB,GAC3B,iBAAiB,SAAS,CAAC,MAAM,EACjC,gBAAgB,MAAM,EACtB,QAAQ,gBAAgB,KACvB,OAAO,CAAC,OAAO,CAYjB,CAAA"}

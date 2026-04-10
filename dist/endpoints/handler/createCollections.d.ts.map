@@ -1,0 +1,1 @@
+{"version":3,"file":"createCollections.d.ts","sourceRoot":"","sources":["../../../src/endpoints/handler/createCollections.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,cAAc,EAAE,MAAM,SAAS,CAAA;AAE7C,OAAO,EAAE,KAAK,eAAe,EAAE,MAAM,gBAAgB,CAAA;AAErD,eAAO,MAAM,iBAAiB,GAAI,eAAe,eAAe,KAAG,cAqBlE,CAAA"}

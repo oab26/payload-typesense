@@ -1,0 +1,1 @@
+{"version":3,"file":"ResultError.d.ts","sourceRoot":"","sources":["../../../src/components/render/ResultError.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAA;AAEzB,OAAO,EAAE,KAAK,iBAAiB,EAAE,MAAM,oBAAoB,CAAA;AAE3D,UAAU,wBAAwB;IAChC,KAAK,EAAE,MAAM,CAAA;IACb,cAAc,CAAC,EAAE,MAAM,CAAA;IACvB,WAAW,EAAE,iBAAiB,CAAA;CAC/B;AAED,eAAO,MAAM,mBAAmB,GAAI,yCAIjC,wBAAwB,sBA+C1B,CAAA"}

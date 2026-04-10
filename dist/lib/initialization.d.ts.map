@@ -1,0 +1,1 @@
+{"version":3,"file":"initialization.d.ts","sourceRoot":"","sources":["../../src/lib/initialization.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,KAAK,OAAO,EAAE,MAAM,SAAS,CAAA;AACtC,OAAO,KAAK,SAAS,MAAM,WAAW,CAAA;AAEtC,OAAO,EAAuC,KAAK,eAAe,EAAE,MAAM,aAAa,CAAA;AAMvF,eAAO,MAAM,mBAAmB,GAC9B,SAAS,OAAO,EAChB,iBAAiB,SAAS,CAAC,MAAM,EACjC,eAAe,eAAe,kBAkB/B,CAAA"}
